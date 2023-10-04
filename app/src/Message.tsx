@@ -5,25 +5,25 @@ function Calc() {
   const [numbertwo, setNumber2] = useState(0);
   const [output, setTotal] = useState(0);
 
-  function updateTotal(all) {
-    setTotal(all);
+  function updateTotal() {
+    setTotal(numberone + numbertwo);
   }
 
   function addTotal() {
-    updateTotal(numberone + numbertwo);
+    updateTotal();
   }
 
   function subtractTotal() {
-    updateTotal(numberone - numbertwo);
+    setTotal(numberone - numbertwo);
   }
 
   function multiplyTotal() {
-    updateTotal(numberone * numbertwo);
+    setTotal(numberone * numbertwo);
   }
 
   function divideTotal() {
    
-      updateTotal(numberone / numbertwo);
+      setTotal(numberone / numbertwo);
   }
 
   return (
