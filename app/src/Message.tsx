@@ -1,31 +1,29 @@
 import { useState } from "react";
 
 function Calc() {
-  const [numberone, setNumber1] = useState(0); 
-  const [numbertwo, setNumber2] = useState(0);
+  const [numberone, setNumberone] = useState(0); 
+  const [numbertwo, setNumbertwo] = useState(0);
   const [output, setTotal] = useState(0);
 
-  function updateTotal() {
-    setTotal(numberone + numbertwo);
+  function add() {
+    all();
   }
 
-  function addTotal() {
-    updateTotal();
-  }
-
-  function subtractTotal() {
+  function subtract() {
     setTotal(numberone - numbertwo);
   }
 
-  function multiplyTotal() {
+  function multiply() {
     setTotal(numberone * numbertwo);
   }
 
-  function divideTotal() {
+  function divide() {
    
       setTotal(numberone / numbertwo);
   }
-
+  function all() {
+    setTotal(numberone + numbertwo);
+  }
   return (
     <div className="App">
       <h1>Calculator</h1>
@@ -35,20 +33,20 @@ function Calc() {
           type="number"
           placeholder=""
           value={numberone}
-          onChange={(e) => setNumber1(+e.target.value)}
+          onChange={(e) => setNumberone(+e.target.value)}
         />
         <label htmlFor="numbertwo">VALUE 2:</label>
         <input
           type="number"
           placeholder=""
           value={numbertwo}
-          onChange={(e) => setNumber2(+e.target.value)}
+          onChange={(e) => setNumbertwo(+e.target.value)}
         />
       </div>
-      <button onClick={addTotal}>Add</button>
-      <button onClick={subtractTotal}>Subtract</button>
-      <button onClick={multiplyTotal}>Multiply</button>
-      <button onClick={divideTotal}>Divide</button>
+      <button onClick={add}>Add</button>
+      <button onClick={subtract}>Subtract</button>
+      <button onClick={multiply}>Multiply</button>
+      <button onClick={divide}>Divide</button>
 
       <h2>Result: {output}</h2>
     </div>
