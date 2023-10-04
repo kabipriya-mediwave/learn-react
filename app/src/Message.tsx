@@ -1,25 +1,56 @@
-import {useState}from 'react';
+import { useState } from "react";
 
-function Message(){
-    const [firstname,firstvalue]=useState('');
-    const[secondname,secondvalue]=useState('');
-    const[output,result]=useState('0');
-    return <div className="container">
-        <div className="input-values">
-        <div>
-        <label htmlFor="first-value">Enter value 1</label>
-        <input type="number" name="first-value" id="first-value" />
-        </div>
-        <div>
-        <label htmlFor="second-value">Enter value 2</label>
-        <input type="number" name="second-value" id="second-value" />
-        </div>
-        </div>
-        <button id="add">Add</button>
-        <button id="sub">sub</button>
-        <button id="mul">Mul</button>
-        <button id="divide">Divide</button>
-        
+function Calc() {
+  const [numberone, setNumber1] = useState(0); 
+  const [numbertwo, setNumber2] = useState(0);
+  const [output, setTotal] = useState(0);
+
+  function updateTotal(all) {
+    setTotal(all);
+  }
+
+  function addTotal() {
+    updateTotal(numberone + numbertwo);
+  }
+
+  function subtractTotal() {
+    updateTotal(numberone - numbertwo);
+  }
+
+  function multiplyTotal() {
+    updateTotal(numberone * numbertwo);
+  }
+
+  function divideTotal() {
+   
+      updateTotal(numberone / numbertwo);
+  }
+
+  return (
+    <div className="App">
+      <h1>Calculator</h1>
+      <div className="input-numbers">
+        <input
+          type="number"
+          placeholder=""
+          value={numberone}
+          onChange={(e) => setNumber1(+e.target.value)}
+        />
+        <input
+          type="number"
+          placeholder=""
+          value={numbertwo}
+          onChange={(e) => setNumber2(+e.target.value)}
+        />
+      </div>
+      <button onClick={addTotal}>Add</button>
+      <button onClick={subtractTotal}>Subtract</button>
+      <button onClick={multiplyTotal}>Multiply</button>
+      <button onClick={divideTotal}>Divide</button>
+
+      <h2>Total: {output}</h2>
     </div>
+  );
 }
-export default Message;
+
+export default Calc;
