@@ -29,13 +29,15 @@ function Calc() {
   return (
     <div className="App">
       <h1>Calculator</h1>
-      <div className="input-numbers">
+     <div className="input-numbers">
+     <label htmlFor="numberone">VALUE 1:</label>
         <input
           type="number"
           placeholder=""
           value={numberone}
           onChange={(e) => setNumber1(+e.target.value)}
         />
+        <label htmlFor="numbertwo">VALUE 2:</label>
         <input
           type="number"
           placeholder=""
@@ -48,7 +50,7 @@ function Calc() {
       <button onClick={multiplyTotal}>Multiply</button>
       <button onClick={divideTotal}>Divide</button>
 
-      <h2>Total: {output}</h2>
+      <h2>Result: {output}</h2>
     </div>
   );
 }
